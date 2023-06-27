@@ -13,6 +13,8 @@ export const FadeScreen = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
+        
+      {/* Usamos el Animated.View porque en View solamente no soporta la propiedad opacity de tipo Animated */}
       <Animated.View
         style={{
           backgroundColor: '#084F6A',
