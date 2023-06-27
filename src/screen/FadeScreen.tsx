@@ -1,16 +1,9 @@
-import {useRef} from 'react';
-import {Text, View, Animated, Button} from 'react-native';
+import {View, Animated, Button} from 'react-native';
+
+import {useFade} from '../hooks/useFade';
 
 export const FadeScreen = () => {
-  const opacity = useRef(new Animated.Value(0)).current;
-
-  const fadeIn = () => {
-    Animated.timing(opacity, {
-      toValue: 1,
-      duration: 1000,
-      useNativeDriver: true,
-    }).start();
-  };
+  const {opacity, fadeIn, fadeOut} = useFade();
 
   return (
     <View
@@ -27,11 +20,12 @@ export const FadeScreen = () => {
           height: 150,
           borderColor: 'white',
           borderWidth: 10,
-          opacity: opacity,
+          opacity,
         }}
       />
 
       <Button title="fadeIn" onPress={fadeIn} />
+      <Button title="fadeOut" onPress={fadeOut} />
     </View>
   );
 };
