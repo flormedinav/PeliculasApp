@@ -1,10 +1,19 @@
-import {Text, View, Button, ActivityIndicator, Dimensions} from 'react-native';
+import {
+  Text,
+  View,
+  Button,
+  ActivityIndicator,
+  Dimensions,
+  FlatList,
+} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import Carousel from 'react-native-snap-carousel';
 
 import {useMovies} from '../hooks/useMovies';
 import {MoviePoster} from '../components/MoviePoster';
+import {ScrollView} from 'react-native-gesture-handler';
+import {HorizontalSlider} from '../components/HorizontalSlider';
 
 const {width: windowWidth} = Dimensions.get('window');
 
@@ -26,17 +35,23 @@ export const HomeScreen = () => {
   }
 
   return (
-    <View style={{marginTop: top + 20}}>
-      {/* <MoviePoster movie={moviesInCinema[0]} /> */}
+    <ScrollView>
+      <View style={{marginTop: top + 20}}>
+        {/* Carousel principal */}
+        <View style={{height: 440}}>
+          <Carousel
+            data={moviesInCinema}
+            renderItem={({item}: any) => <MoviePoster movie={item} />}
+            sliderWidth={windowWidth}
+            itemWidth={300}
+            inactiveSlideOpacity={0.9}
+          />
+        </View>
 
-      <View style={{height: 440}}>
-        <Carousel
-          data={moviesInCinema}
-          renderItem={({item}: any) => <MoviePoster movie={item} />}
-          sliderWidth={windowWidth}
-          itemWidth={300}
-        />
+        {/* Carousel populares */}
+        <HorizontalSlider title="En cine" movies={moviesInCinema} />
+        <HorizontalSlider movies={moviesInCinema} />
       </View>
-    </View>
+    </ScrollView>
   );
 };
