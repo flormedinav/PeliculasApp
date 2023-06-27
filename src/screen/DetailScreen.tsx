@@ -74,10 +74,12 @@ const styles = StyleSheet.create({
   marginContainer: {
     marginHorizontal: 20,
     marginTop: 20,
+    marginBottom: 5,
   },
   subTitle: {
     fontSize: 16,
     opacity: 0.8,
+    marginBottom: 5,
   },
   title: {
     fontSize: 20,

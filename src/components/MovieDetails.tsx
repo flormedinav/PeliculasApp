@@ -1,7 +1,9 @@
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import currencyFormatter from 'currency-formatter';
+
 import {MovieFull} from '../interfaces/movieInterface';
 import {Cast} from '../interfaces/creditsInterface';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props {
   movieFull: MovieFull;
@@ -20,7 +22,29 @@ export const MovieDetails = ({movieFull, cast}: Props) => {
             - {movieFull.genres.map(genre => genre.name).join(', ')}
           </Text>
         </View>
+
+        {/* Historia */}
+        <Text style={styles.title}>Historia</Text>
+        <Text style={styles.description}>{movieFull.overview}</Text>
+
+        {/* Presupuesto */}
+        <Text style={styles.title}>Presupuesto</Text>
+        <Text style={styles.description}>
+          {currencyFormatter.format(movieFull.budget, {code: 'USD'})}
+        </Text>
       </View>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 20,
+    marginTop: 10,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  description: {
+    fontSize: 16,
+  },
+});
