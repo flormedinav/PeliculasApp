@@ -1,13 +1,9 @@
 # **PELÍCULAS APP**
 
-<br />
-
 ## **📌 OBJETIVOS**
 
 - Desarrollar una aplicación para ver información sobre películas populares, más valoradas y próximos lanzamientos.
 - Proporcionar la funcionalidad de ver el detalle de cada película, incluyendo descripción, valoración, género y elenco.
-
-<br />
 
 ## **📌 DESCRIPCIÓN DEL PROYECTO**
 
@@ -21,13 +17,10 @@ La aplicación de Películas tiene como objetivo ofrecer a los usuarios la posib
 <br />
 ✅ Acceder al detalle de cada película para obtener información más detallada, como la descripción, valoración, género y elenco de la película.
 <br />
-<br />
 
 ## **🦾 TECNOLOGÍAS**
 
 - **React Native**, **Typescript**.
-
-<br />
 
 ## **📍 HOME**
 
