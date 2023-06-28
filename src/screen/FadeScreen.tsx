@@ -13,7 +13,6 @@ export const FadeScreen = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-        
       {/* Usamos el Animated.View porque en View solamente no soporta la propiedad opacity de tipo Animated */}
       <Animated.View
         style={{
@@ -26,8 +25,8 @@ export const FadeScreen = () => {
         }}
       />
 
-      <Button title="fadeIn" onPress={fadeIn} />
-      <Button title="fadeOut" onPress={fadeOut} />
+      <Button title="fadeIn" onPress={() => fadeIn()} />
+      <Button title="fadeOut" onPress={() => fadeOut(0)} />
     </View>
   );
 };
